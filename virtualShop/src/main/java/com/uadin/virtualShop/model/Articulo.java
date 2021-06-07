@@ -13,17 +13,17 @@ public class Articulo {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo")
+    @Column(name = "titulo", nullable = false, unique = true)
     private String titulo;
 
     @Column(name = "tipo_imagen")
     private String tipoImagen;
 
-    @Column(name = "imagen")
+    @Column(name = "imagen", nullable = false, unique = true)
     @Lob
     private byte[] imagen;
 
-    @Column(name = "precio")
+    @Column(name = "precio", nullable = false)
     private int precio;
 
     @Column(name = "favorito")

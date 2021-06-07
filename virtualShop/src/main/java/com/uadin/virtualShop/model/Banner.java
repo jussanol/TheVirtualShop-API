@@ -13,7 +13,7 @@ public class Banner {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo")
+    @Column(name = "titulo", nullable = false, unique = true)
     private String titulo;
 
     @Column(name = "descripcion")
@@ -22,7 +22,7 @@ public class Banner {
     @Column (name = "tipo_imagen")
     private String tipoImagen;
 
-    @Column (name = "imagen")
+    @Column (name = "imagen", nullable = false, unique = true)
     @Lob
     private byte[] imagen;
 

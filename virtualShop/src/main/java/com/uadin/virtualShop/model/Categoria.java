@@ -13,10 +13,10 @@ public class Categoria {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo")
+    @Column(name = "titulo", nullable = false)
     private String titulo;
 
-    @Column(name = "categoria")
+    @Column(name = "categoria", nullable = false)
     private String categoria;
 
     @Column(name = "tipo_imagen")

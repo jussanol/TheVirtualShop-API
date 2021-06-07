@@ -1,0 +1,54 @@
+com/uadin/virtualShop/VirtualShopApplication.java
+ com.uadin.virtualShop.VirtualShopApplication
+com/uadin/virtualShop/repository/CarrouselRepository.java
+ com.uadin.virtualShop.repository.CarrouselRepository
+com/uadin/virtualShop/service/mapper/ModelMapperUtils.java
+ com.uadin.virtualShop.service.mapper.ModelMapperUtils
+com/uadin/virtualShop/ServletInitializer.java
+ com.uadin.virtualShop.ServletInitializer
+com/uadin/virtualShop/service/ICarrouselService.java
+ com.uadin.virtualShop.service.ICarrouselService
+com/uadin/virtualShop/service/impl/CarrouselService.java
+ com.uadin.virtualShop.service.impl.CarrouselService
+com/uadin/virtualShop/model/Carrousel.java
+ com.uadin.virtualShop.model.Carrousel
+com/uadin/virtualShop/service/dto/CarrouselDTO.java
+ com.uadin.virtualShop.service.dto.CarrouselDTO
+com/uadin/virtualShop/service/dto/ArticuloDTO.java
+ com.uadin.virtualShop.service.dto.ArticuloDTO
+com/uadin/virtualShop/resource/CarrouselResource.java
+ com.uadin.virtualShop.resource.CarrouselResource
+com/uadin/virtualShop/repository/BannerRepository.java
+ com.uadin.virtualShop.repository.BannerRepository
+com/uadin/virtualShop/service/ICategoriaService.java
+ com.uadin.virtualShop.service.ICategoriaService
+com/uadin/virtualShop/repository/CategoriaRepository.java
+ com.uadin.virtualShop.repository.CategoriaRepository
+com/uadin/virtualShop/service/impl/CategoriaService.java
+ com.uadin.virtualShop.service.impl.CategoriaService
+com/uadin/virtualShop/service/IBannerService.java
+ com.uadin.virtualShop.service.IBannerService
+com/uadin/virtualShop/resource/BannerResource.java
+ com.uadin.virtualShop.resource.BannerResource
+com/uadin/virtualShop/service/dto/CategoriaDTO.java
+ com.uadin.virtualShop.service.dto.CategoriaDTO
+com/uadin/virtualShop/resource/ArticuloResource.java
+ com.uadin.virtualShop.resource.ArticuloResource
+com/uadin/virtualShop/model/Categoria.java
+ com.uadin.virtualShop.model.Categoria
+com/uadin/virtualShop/resource/CategoriaResource.java
+ com.uadin.virtualShop.resource.CategoriaResource
+com/uadin/virtualShop/service/dto/BannerDTO.java
+ com.uadin.virtualShop.service.dto.BannerDTO
+com/uadin/virtualShop/repository/ArticuloRepository.java
+ com.uadin.virtualShop.repository.ArticuloRepository
+com/uadin/virtualShop/service/IArticuloService.java
+ com.uadin.virtualShop.service.IArticuloService
+com/uadin/virtualShop/model/Articulo.java
+ com.uadin.virtualShop.model.Articulo
+com/uadin/virtualShop/model/Banner.java
+ com.uadin.virtualShop.model.Banner
+com/uadin/virtualShop/service/impl/ArticuloService.java
+ com.uadin.virtualShop.service.impl.ArticuloService
+com/uadin/virtualShop/service/impl/BannerService.java
+ com.uadin.virtualShop.service.impl.BannerService

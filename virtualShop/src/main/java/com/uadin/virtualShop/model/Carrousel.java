@@ -13,10 +13,10 @@ public class Carrousel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "imagen")
+    @Column(name = "imagen", nullable = false)
     @Lob
     private byte[] imagen;
 
