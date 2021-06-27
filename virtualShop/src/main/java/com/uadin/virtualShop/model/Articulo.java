@@ -13,8 +13,11 @@ public class Articulo {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo", nullable = false, unique = true)
-    private String titulo;
+    @Column(name = "nombre", nullable = false, unique = true)
+    private String nombre;
+
+    @Column(name = "categoria", nullable = false)
+    private String categoria;
 
     @Column(name = "tipo_imagen")
     private String tipoImagen;
@@ -35,9 +38,10 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(Long id, String titulo, String tipoImagen, byte[] imagen, int precio, boolean favorito, int precioOferta) {
+    public Articulo(Long id, String nombre, String categoria, String tipoImagen, byte[] imagen, int precio, boolean favorito, int precioOferta) {
         this.id = id;
-        this.titulo = titulo;
+        this.nombre = nombre;
+        this.categoria = categoria;
         this.tipoImagen = tipoImagen;
         this.imagen = imagen;
         this.precio = precio;

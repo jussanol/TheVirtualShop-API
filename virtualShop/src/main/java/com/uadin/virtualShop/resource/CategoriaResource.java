@@ -1,8 +1,10 @@
 package com.uadin.virtualShop.resource;
 
-import com.uadin.virtualShop.model.Categoria;
+import com.uadin.virtualShop.repository.specs.SearchCriteria;
 import com.uadin.virtualShop.service.ICategoriaService;
 import com.uadin.virtualShop.service.dto.CategoriaDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +24,16 @@ public class CategoriaResource {
     public List<CategoriaDTO> getAllCategorias(){
         List<CategoriaDTO> categorias = this.categoriaService.obtenerCategorias();
         return categorias;
+    }
+
+    @GetMapping("/categorias-pag")
+    public Page<CategoriaDTO> getAllCategorias (Pageable pageable){
+        return this.categoriaService.obtenerCategoriasPageable(pageable);
+    }
+
+    @PostMapping("/categorias-pag-spec")
+    public Page<CategoriaDTO> getAllCategoriasSpec (Pageable pageable, @RequestBody SearchCriteria[] criteria){
+        return this.categoriaService.obtenerCategoriasPaginadoSpec(pageable, criteria);
     }
 
     @PostMapping("/categorias")

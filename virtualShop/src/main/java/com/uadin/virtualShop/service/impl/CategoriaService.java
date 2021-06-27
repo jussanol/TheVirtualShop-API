@@ -1,11 +1,14 @@
 package com.uadin.virtualShop.service.impl;
 
 import com.uadin.virtualShop.model.Categoria;
-import com.uadin.virtualShop.repository.CarrouselRepository;
 import com.uadin.virtualShop.repository.CategoriaRepository;
+import com.uadin.virtualShop.repository.specs.CategoriaSpecification;
+import com.uadin.virtualShop.repository.specs.SearchCriteria;
 import com.uadin.virtualShop.service.ICategoriaService;
 import com.uadin.virtualShop.service.dto.CategoriaDTO;
 import com.uadin.virtualShop.service.mapper.ModelMapperUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +28,26 @@ public class CategoriaService implements ICategoriaService {
         List<Categoria> categorias = this.categoriaRepository.findAll();
         return ModelMapperUtils.mapAll(categorias, CategoriaDTO.class);
     }
+
+    @Override
+    public Page<CategoriaDTO> obtenerCategoriasPageable(Pageable pageable) {
+        Page<Categoria> categorias = this.categoriaRepository.findAll(pageable);
+        Page<CategoriaDTO> pageDTO = categorias.map(categoria -> ModelMapperUtils.map(categoria, CategoriaDTO.class));
+        return pageDTO;
+    }
+
+    @Override
+    public Page<CategoriaDTO> obtenerCategoriasPaginadoSpec(Pageable pageable, SearchCriteria[] criteriaLis) {
+        CategoriaSpecification specArticulo = new CategoriaSpecification();
+        for (SearchCriteria criteria : criteriaLis){
+            specArticulo.add(criteria);
+        }
+        Page<Categoria> categorias = categoriaRepository.findAll(specArticulo, pageable);
+
+        Page<CategoriaDTO> dtoPage = categorias.map(categoria -> ModelMapperUtils.map(categoria, CategoriaDTO.class));
+        return dtoPage;
+    }
+
 
     @Override
     public CategoriaDTO save(CategoriaDTO categoriaDTO) {

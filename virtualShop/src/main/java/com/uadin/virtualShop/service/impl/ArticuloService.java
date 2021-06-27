@@ -2,9 +2,14 @@ package com.uadin.virtualShop.service.impl;
 
 import com.uadin.virtualShop.model.Articulo;
 import com.uadin.virtualShop.repository.ArticuloRepository;
+import com.uadin.virtualShop.repository.specs.ArticuloSpecification;
+import com.uadin.virtualShop.repository.specs.SearchCriteria;
 import com.uadin.virtualShop.service.IArticuloService;
 import com.uadin.virtualShop.service.dto.ArticuloDTO;
 import com.uadin.virtualShop.service.mapper.ModelMapperUtils;
+import org.dom4j.rule.Mode;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +28,25 @@ public class ArticuloService implements IArticuloService {
     public List<ArticuloDTO> obtenerArticulos() {
         List<Articulo> articulos = this.articuloRepository.findAll();
         return ModelMapperUtils.mapAll(articulos, ArticuloDTO.class);
+    }
+
+    @Override
+    public Page<ArticuloDTO> obtenerArticulosPaginado(Pageable pageable) {
+        Page<Articulo> articulos = this.articuloRepository.findAll(pageable);
+        Page<ArticuloDTO> pageDTO = articulos.map(articulo -> ModelMapperUtils.map(articulo, ArticuloDTO.class));
+        return pageDTO;
+    }
+
+    @Override
+    public Page<ArticuloDTO> obtenerArticulosPaginadoSpec(Pageable pageable, SearchCriteria[] criteriaLis) {
+        ArticuloSpecification specArticulo = new ArticuloSpecification();
+        for (SearchCriteria criteria : criteriaLis){
+            specArticulo.add(criteria);
+        }
+        Page<Articulo> articulos = articuloRepository.findAll(specArticulo, pageable);
+
+        Page<ArticuloDTO> dtoPage = articulos.map(articulo -> ModelMapperUtils.map(articulo, ArticuloDTO.class));
+        return dtoPage;
     }
 
     @Override
